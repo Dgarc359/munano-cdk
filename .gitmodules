@@ -1,3 +1,4 @@
-[submodule "services/extern"]
-	path = services/extern
+[submodule "services/external"]
+	path = services/external
 	url = git@github.com:xephyrhills/munano-commands.git
+	branch = main
