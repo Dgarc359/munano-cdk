@@ -1,0 +1,1 @@
+export {ssmCredentials} from './utils';

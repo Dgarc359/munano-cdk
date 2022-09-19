@@ -1,0 +1,3 @@
+[submodule "services/extern"]
+	path = services/extern
+	url = git@github.com:xephyrhills/munano-commands.git
