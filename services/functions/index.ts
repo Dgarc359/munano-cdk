@@ -1,6 +1,6 @@
 import { APIGatewayProxyHandlerV2 } from "aws-lambda";
 import nacl from 'tweetnacl';
-import {ssmCredentials} from '../lib';
+import {ssmCredentials, retrieveCommand} from '../lib';
 
 const { LAMBDA_BOT_PUBLIC_KEY } = await ssmCredentials(["LAMBDA_BOT_PUBLIC_KEY"]);
 
@@ -34,14 +34,17 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
 
   const parsedBody = JSON.parse(body);
   console.log(parsedBody);
-  const {type: kind} = JSON.parse(body);
+  const {type: kind, name} = JSON.parse(body);
   console.log(kind);
   console.log(kind === 1);
+
   if (kind === 1) {
     return {
       statusCode: 200,
       body: body,
     }
+  } else if (kind === 2) {
+    const {command} = retrieveCommand(name);
   }
 
   return BadRequest

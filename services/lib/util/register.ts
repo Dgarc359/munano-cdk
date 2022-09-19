@@ -1,6 +1,6 @@
 
-import * as command from './command';
-import * as externalCommands from '../external/command'
+import * as command from '../command';
+import * as externalCommands from '../../external/command'
 import axios from 'axios';
 import {config} from './config';
 

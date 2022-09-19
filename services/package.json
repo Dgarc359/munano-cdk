@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "reg": "ts-node lib/register.ts"
+    "reg": "ts-node lib/util/register.ts"
   },
   "dependencies": {
     "aws-sdk": "^2.1218.0",
     "axios": "^0.27.2",
     "ts-node": "^10.9.1",
+    "tsc": "^2.0.4",
     "tweetnacl": "^1.0.3"
   },
   "devDependencies": {

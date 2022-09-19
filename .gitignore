@@ -1,5 +1,6 @@
 .vscode/
 .env
+out/
 
 # dependencies
 node_modules
