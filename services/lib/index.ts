@@ -1,1 +1,1 @@
-export {ssmCredentials} from './utils';
+export {ssmCredentials} from './ssm';

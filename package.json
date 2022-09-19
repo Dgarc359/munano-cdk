@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "reg": "cd services && yarn reg",
     "start": "sst start",
     "build": "sst build",
     "deploy": "sst deploy",

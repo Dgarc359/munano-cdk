@@ -1,11 +1,16 @@
 {
   "extends": "../tsconfig.json",
-  "include": ["functions", "extern"],
+  "include": ["functions", "extern", "lib"],
   "compilerOptions": {
     "module": "esnext",
     "target": "es2017",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "esModuleInterop": true
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
   }
 }
