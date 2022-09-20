@@ -13,7 +13,7 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-console.log(command, externalCommands);
+console.debug(command, externalCommands);
 
 const sendRequest = (commands: any) => {
   Object.keys(commands).map((e) => {

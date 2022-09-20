@@ -26,17 +26,18 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
     Buffer.from(LAMBDA_BOT_PUBLIC_KEY, 'hex')
   );
 
-  console.log(isVerified);
+  console.debug(isVerified);
 
   if (!isVerified) {
     return BadRequest
   }
 
   const parsedBody = JSON.parse(body);
-  console.log(parsedBody);
-  const {type: kind, name} = JSON.parse(body);
-  console.log(kind);
-  console.log(kind === 1);
+  console.debug(parsedBody);
+  const {type: kind, data} = JSON.parse(body);
+  const {name} = data;
+  if (!name) throw new Error('No command found');
+  console.debug('kind',kind, 'name', name);
 
   if (kind === 1) {
     return {
@@ -44,7 +45,11 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
       body: body,
     }
   } else if (kind === 2) {
-    const {command} = retrieveCommand(name);
+    console.debug('command name',name);
+    const callback = retrieveCommand(name);
+    const response = await callback();
+    console.debug('response', response);
+    return response;
   }
 
   return BadRequest
