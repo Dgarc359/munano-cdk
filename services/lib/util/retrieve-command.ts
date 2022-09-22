@@ -2,6 +2,8 @@ import * as commands from '../src';
 import * as externalCommands from '../../external/src';
 
 export const retrieveCommand = (command: string): any => {
+//   [commands, externalCommands].forEach((commandsArr) => commandsArr.map());
+
   const callback: any[] = Object.keys(externalCommands).map((e: any) => {
     console.debug(e);
     // @ts-ignore
