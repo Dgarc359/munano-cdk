@@ -6,11 +6,14 @@
     "reg": "ts-node lib/util/register.ts"
   },
   "dependencies": {
+    "@discordjs/rest": "^1.5.0",
     "aws-sdk": "^2.1218.0",
     "axios": "^0.27.2",
+    "discord-api-types": "^0.37.24",
     "ts-node": "^10.9.1",
     "tsc": "^2.0.4",
-    "tweetnacl": "^1.0.3"
+    "tweetnacl": "^1.0.3",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.104"
