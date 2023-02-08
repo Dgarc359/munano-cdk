@@ -21,7 +21,7 @@ export type DiscordMember = {
   is_pending: boolean,
   joined_at: string,
   mute: boolean,
-  nick: string | null, // can be null
+  nick: any, // can be null
   pending: boolean,
   permissions: string,
   premium_since: any, // can be null
