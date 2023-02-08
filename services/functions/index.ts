@@ -33,10 +33,10 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
   }
 
   const parsedBody = JSON.parse(body);
-  // console.debug("parsed Body",parsedBody);
+  console.debug("parsed Body",parsedBody);
   const {type: kind, data} = JSON.parse(body);
-  const {name} = data;
-  if (!name) throw new Error('No command found');
+  // const {name} = data;
+  // if (!name) throw new Error('No command found');
   // console.debug('kind',kind, 'name', name);
 
   if (kind === 1) {
@@ -46,6 +46,8 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
     }
   } else if (kind === 2) {
     // console.debug('command name',name);
+    const {name} = data;
+    if(!name) throw new Error('No command found');
     const callback = retrieveCommand(name);
     const response = await callback(parsedBody);
     // console.debug('response', response);

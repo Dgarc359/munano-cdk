@@ -49,12 +49,20 @@ export function MyStack({ stack, app }: StackContext) {
     ManagedPolicy.fromAwsManagedPolicyName("service-role/AWSLambdaBasicExecutionRole")
   );
 
-  const randP = new Function(
+  const mainEntrypoint = new Function(
     stack,
-    app.logicalPrefixedName('rand-p'),
+    app.logicalPrefixedName('main-entrypoint'),
     {
+      functionName: app.logicalPrefixedName(`main-entrypoint`),
       handler: 'functions/index.handler',
-      role: lambdaServiceAssumedRole
+      role: lambdaServiceAssumedRole,
+      environment: {
+        BOT_TOKEN: process.env.BOT_TOKEN!
+      }
     }
   )
+
+  stack.addOutputs({
+    MainLambda: mainEntrypoint.functionArn
+  })
 }

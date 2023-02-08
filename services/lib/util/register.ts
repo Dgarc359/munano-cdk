@@ -16,8 +16,8 @@ const headers = {
 console.debug(command, externalCommands);
 
 const sendRequest = (commands: any) => {
-  Object.keys(commands).map((e) => {
-    axios
+  Object.keys(commands).map(async(e) => {
+    await axios
       //@ts-ignore
       .post(url, JSON.stringify(commands[e]), {
         headers: headers,
